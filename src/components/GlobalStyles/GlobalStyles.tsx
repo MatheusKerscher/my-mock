@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
   --background-secondary: #ffffff;
   --color-secondary: #121212;
   --color-tertiary: #aaaaaa;
+  --shadow: 4px 4px 8px 2px #dbdbdb;
 
   transition: all 0.3s ease-in-out;
 }
@@ -18,8 +19,9 @@ const GlobalStyles = createGlobalStyle`
 .dark-theme {
   --background-primary: #121212;
   --background-secondary: #1e1e1e;
-  --color-secondary: #949494;
-  --color-tertiary: #e2e2e2;
+  --color-secondary: #e2e2e2;
+  --color-tertiary: #949494;
+  --shadow: none;
 
   transition: all 0.3s ease;
 }
@@ -33,7 +35,7 @@ const GlobalStyles = createGlobalStyle`
 
 #body {
   background-color: var(--background-primary);
-  height: 100dvh;
+  min-height: 100dvh;
 }
 `;
 

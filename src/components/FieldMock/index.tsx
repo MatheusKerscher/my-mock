@@ -33,6 +33,10 @@ const StyledMockValueContainer = styled.div`
   justify-content: flex-end;
   align-items: center;
 
+  span {
+    text-align: end;
+  }
+
   button {
     background-color: transparent;
     border: none;

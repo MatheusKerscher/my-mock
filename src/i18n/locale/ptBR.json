@@ -14,11 +14,17 @@
     "tabHistory": "Histórico",
     "fieldFullName": "Nome completo",
     "fieldCPF": "CPF",
-    "fieldPhone": "Telefone",
     "fieldZodiacSign": "Signo",
     "fieldStreetAddress": "Endereço",
     "fieldStreetNumber": "Número",
     "fieldCity": "Cidade",
-    "fieldState": "Estado"
+    "fieldState": "Estado",
+    "fieldCompanyName": "Razão social",
+    "fieldTradeName": "Nome fantasia",
+    "fieldPhone": "Telefone",
+    "fieldIE": "Inscrição estadual",
+    "fieldFoundationDate": "Data de fundação",
+    "fieldEmail": "E-mail",
+    "fieldCNPJ": "CNPJ"
   }
 }

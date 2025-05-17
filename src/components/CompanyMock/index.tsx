@@ -2,15 +2,15 @@ import { useState } from "react";
 
 import { fakerPT_BR } from "@faker-js/faker";
 import { useTranslation } from "react-i18next";
-import styled from "styled-components";
 import toast from "react-hot-toast";
+import styled from "styled-components";
 
 import FieldMock from "../FieldMock";
 import MockActions from "../MockActions";
 
-import { jsonExport } from "../../utils/jsonExport";
-import { generateCPF } from "./cpfGenerator";
+import { generateCNPJ } from "./generateCNPJ";
 import { copyToClipboard } from "../../utils/copyToClipboard";
+import { jsonExport } from "../../utils/jsonExport";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -20,12 +20,20 @@ const StyledContainer = styled.div`
   width: 100%;
 `;
 
-const PersonMock = () => {
+const CompanyMock = () => {
   const { t } = useTranslation();
 
-  const [fullName, setFullName] = useState(fakerPT_BR.person.fullName());
-  const [cpf, setCPF] = useState(generateCPF());
-  const [zodiacSign, setZodiacSign] = useState(fakerPT_BR.person.zodiacSign());
+  const [companyName, setCompanyName] = useState(fakerPT_BR.company.name());
+  const [tradeName, setTradeName] = useState(fakerPT_BR.company.name());
+  const [cnpj, setCnpj] = useState(generateCNPJ());
+  const [phone, setPhone] = useState(fakerPT_BR.phone.number());
+  const [ie, setIe] = useState(
+    fakerPT_BR.number.int({ min: 10000000, max: 99999999 }).toString()
+  );
+  const [foundationDate, setFoundationDate] = useState(
+    fakerPT_BR.date.past({ years: 10 }).toLocaleDateString()
+  );
+  const [email, setEmail] = useState(fakerPT_BR.internet.email());
   const [streetAddress, setStreetAddress] = useState(
     fakerPT_BR.location.street()
   );
@@ -34,18 +42,19 @@ const PersonMock = () => {
   );
   const [city, setCity] = useState(fakerPT_BR.location.city());
   const [state, setState] = useState(fakerPT_BR.location.state());
-  const [phone, setPhone] = useState(fakerPT_BR.phone.number());
 
   const generatePersonMockData = () => {
     return {
-      fullName,
-      cpf,
-      zodiacSign,
+      companyName,
+      tradeName,
+      phone,
       streetAddress,
       streetNumber,
       city,
       state,
-      phone,
+      ie,
+      foundationDate,
+      email,
     };
   };
 
@@ -76,28 +85,39 @@ const PersonMock = () => {
   };
 
   const handleGenerateDate = () => {
-    setFullName(fakerPT_BR.person.fullName());
-    setCPF(generateCPF());
-    setZodiacSign(fakerPT_BR.person.zodiacSign());
     setStreetAddress(fakerPT_BR.location.street());
     setStreetNumber(fakerPT_BR.location.buildingNumber());
     setCity(fakerPT_BR.location.city());
     setState(fakerPT_BR.location.state());
     setPhone(fakerPT_BR.phone.number({ style: "national" }));
+    setCompanyName(fakerPT_BR.company.name());
+    setTradeName(fakerPT_BR.company.name());
+    setCnpj(generateCNPJ());
+    setIe(fakerPT_BR.number.int({ min: 10000000, max: 99999999 }).toString());
+    setFoundationDate(
+      fakerPT_BR.date.past({ years: 10 }).toLocaleDateString()
+    );
+    setEmail(fakerPT_BR.internet.email());
   };
 
   return (
     <StyledContainer>
       <FieldMock
-        label="fieldFullName"
-        value={fullName}
-        copyValue={() => handleCopy("fieldFullName", fullName)}
+        label="fieldCompanyName"
+        value={companyName}
+        copyValue={() => handleCopy("fieldCompanyName", companyName)}
       />
 
       <FieldMock
-        label="fieldCPF"
-        value={cpf}
-        copyValue={() => handleCopy("fieldCPF", cpf)}
+        label="fieldTradeName"
+        value={tradeName}
+        copyValue={() => handleCopy("fieldTradeName", tradeName)}
+      />
+
+      <FieldMock
+        label="fieldCNPJ"
+        value={cnpj}
+        copyValue={() => handleCopy("fieldCNPJ", cnpj)}
       />
 
       <FieldMock
@@ -107,9 +127,21 @@ const PersonMock = () => {
       />
 
       <FieldMock
-        label="fieldZodiacSign"
-        value={zodiacSign}
-        copyValue={() => handleCopy("fieldZodiacSign", zodiacSign)}
+        label="fieldIE"
+        value={ie}
+        copyValue={() => handleCopy("fieldIE", ie)}
+      />
+
+      <FieldMock
+        label="fieldFoundationDate"
+        value={foundationDate}
+        copyValue={() => handleCopy("fieldFoundationDate", foundationDate)}
+      />
+
+      <FieldMock
+        label="fieldEmail"
+        value={email}
+        copyValue={() => handleCopy("fieldEmail", email)}
       />
 
       <FieldMock
@@ -136,7 +168,7 @@ const PersonMock = () => {
         copyValue={() => handleCopy("fieldState", state)}
       />
 
-      <MockActions 
+      <MockActions
         onCLickGenerateDate={handleGenerateDate}
         onClickCopyAll={handleCopyAll}
         onClickJSONExport={handleJSONExport}
@@ -145,4 +177,4 @@ const PersonMock = () => {
   );
 };
 
-export default PersonMock;
+export default CompanyMock;

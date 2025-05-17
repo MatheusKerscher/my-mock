@@ -2,6 +2,7 @@ import { ConfigProvider, Tabs, type TabsProps } from "antd";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import PersonMock from "../PersonMock";
+import CompanyMock from "../CompanyMock";
 
 const tabItems: TabsProps["items"] = [
   {
@@ -12,7 +13,7 @@ const tabItems: TabsProps["items"] = [
   {
     key: "2",
     label: "tabCompany",
-    children: <>2</>,
+    children: <CompanyMock />,
   },
   {
     key: "3",

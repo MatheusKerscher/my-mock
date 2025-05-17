@@ -14,17 +14,7 @@ const tabItems: TabsProps["items"] = [
     key: "2",
     label: "tabCompany",
     children: <CompanyMock />,
-  },
-  {
-    key: "3",
-    label: "tabPersonalized",
-    children: <>3</>,
-  },
-  {
-    key: "4",
-    label: "tabHistory",
-    children: <>4</>,
-  },
+  }
 ];
 
 type TabsMockProps = {

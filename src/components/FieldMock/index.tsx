@@ -5,7 +5,7 @@ import styled from "styled-components";
 type FieldMockProps = {
   label: string;
   value: string;
-  copyValue: (value: string) => void;
+  copyValue: () => void;
 };
 
 const StyledContainer = styled.div`

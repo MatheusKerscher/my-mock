@@ -1,0 +1,30 @@
+{
+  "translation": {
+    "buttonGenerateData": "Generate new data",
+    "buttonCopyData": "Copy all data",
+    "buttonJSONExport": "Export as JSON",
+    "exportJSONSuccess": "Data exported successfully",
+    "copyFieldSuccess": "{{field}} copied successfully",
+    "copyFieldFail": "Could not copy the value of {{field}}",
+    "copyAllFieldsSuccess": "All values were copied",
+    "copyAllFieldsFail": "Could not copy all values",
+    "tabPeople": "Personal Information",
+    "tabCompany": "Business Information",
+    "tabPersonalized": "Custom Data",
+    "tabHistory": "History",
+    "fieldFullName": "Full Name",
+    "fieldCPF": "CPF",
+    "fieldZodiacSign": "Zodiac Sign",
+    "fieldStreetAddress": "Address",
+    "fieldStreetNumber": "Number",
+    "fieldCity": "City",
+    "fieldState": "State",
+    "fieldCompanyName": "Corporate Name",
+    "fieldTradeName": "Trade Name",
+    "fieldPhone": "Phone",
+    "fieldIE": "State Registration",
+    "fieldFoundationDate": "Foundation Date",
+    "fieldEmail": "Email",
+    "fieldCNPJ": "CNPJ"
+  }
+}
